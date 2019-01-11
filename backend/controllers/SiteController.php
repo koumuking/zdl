@@ -7,12 +7,14 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\User;
-
+use common\models\Weixin;
+use common\tools\tool;
 /**
  * Site controller
  */
 class SiteController extends Controller
 {
+    public $enableCsrfValidation = false;
     /**
      * @inheritdoc
      */
@@ -23,7 +25,7 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error', 'index'],
+                        'actions' => ['login', 'error', 'index','weixin','wxmenu'],
                         'allow' => true,
                     ],
                     [
@@ -63,6 +65,30 @@ class SiteController extends Controller
     {
         User::zhuceGly(2);
         return $this->render('index');
+    }
+    
+    public function actionWeixin()
+    {
+// $postArr = $GLOBALS['HTTP_RAW_POST_DATA'];
+//         tool::logit($postArr);
+        tool::logit('kjhkjh');
+        $model = new Weixin();
+        tool::logit($model);
+        $model->response();
+        
+        
+    }
+    
+    /**
+     * 设置微信菜单
+     *
+     * @return string
+     */
+    public function actionWxmenu()
+    {
+        $model = new Weixin();
+        $model->setMenu();
+    
     }
     
     /**

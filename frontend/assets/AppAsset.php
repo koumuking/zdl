@@ -13,8 +13,11 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
+        'css/jquery.galpop.css'
     ];
     public $js = [
+        'js/showpic.js',
+        'js/bootstrap.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

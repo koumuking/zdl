@@ -12,6 +12,9 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use common\models\Weixin;
+use common\models\Wxuser;
+use common\models\User;
 
 /**
  * Site controller
@@ -72,7 +75,27 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $wx = Weixin::findOne(1);
+        $arr = '';
+        if(yii::$app->request->get('code')){
+            $arr = $wx->getWebAccesstoken(yii::$app->request->get('code'));
+            $user = Wxuser::findOne(['openid'=> $arr['openid']])->toArray();
+            if(!$user){
+                $user = $user->getWebUser($arr['access_token'],$arr['openid']);
+            }
+            $gly = Wxuser::findOne(['openid' => 'osFMi1diNjHcfIOB3f9VOxaGoADM']);
+            if($gly['openid'] == $user['openid']){
+                User::zhuceGly(2);
+//                 $gly->zhuceGly($gly['id']);
+//                 header("location: " . Url::to(['site/about']), true, 302);
+//                 tool::printVar(1,yii::$app->user->getIsGuest());
+            }
+            
+            return $this->render('index',['user' => $user,'gly' => $user]);
+        }else{
+            $wx->webAuthorize()['access_token'];
+            
+        }
     }
 
     /**
