@@ -26,7 +26,7 @@ use common\tools\tool;
 			    echo  ('嗨~~ '.$user['nickname'].': 希望你在这能挑到心仪的货哦！');
 			}else{
 // 			    $glyUrl = Url::to(['@web/sals']);
-			    echo ('嗨~~ '.$gly['nickname'].': 多上传些货哦！大家都等着呢~~<a href="http://zdldc.com/zdl/backend/web/index.php?r=weixin">点击此处上传商品</a>');
+			    echo ('嗨~~ '.$gly['nickname'].': 多上传些货哦！大家都等着呢~~<h3><a href="http://zdldc.com/zdl/backend/web/index.php?r=temaihui">点击此处上传商品</a></h3>');
     } 
 			?> </span>
 	</div>

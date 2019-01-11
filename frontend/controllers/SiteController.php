@@ -21,6 +21,7 @@ use common\models\User;
  */
 class SiteController extends Controller
 {
+    
     /**
      * @inheritdoc
      */
@@ -75,6 +76,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = 'zdl';
         $wx = Weixin::findOne(1);
         $arr = '';
         if(yii::$app->request->get('code')){
@@ -83,12 +85,14 @@ class SiteController extends Controller
             if(!$user){
                 $user = $user->getWebUser($arr['access_token'],$arr['openid']);
             }
-            $gly = Wxuser::findOne(['openid' => 'osFMi1diNjHcfIOB3f9VOxaGoADM']);
-            if($gly['openid'] == $user['openid']){
-                User::zhuceGly(2);
-//                 $gly->zhuceGly($gly['id']);
-//                 header("location: " . Url::to(['site/about']), true, 302);
-//                 tool::printVar(1,yii::$app->user->getIsGuest());
+            $gly1 = Wxuser::findOne(['openid' => 'osFMi1diNjHcfIOB3f9VOxaGoADM']);
+            $gly2 = Wxuser::findOne(['openid' => 'osFMi1ZOfIQqjJPQj6cGEFe6QKvY']);
+            
+            if($gly1['openid'] == $user['openid'] || $gly2['openid'] == $user['openid']){
+                return $this->render('index',['user' => $user,'gly' => $user]);
+//                 User::zhuceGly(2);
+            }else{
+                return $this->render('index',['user' => $user,'gly' => $user]);
             }
             
             return $this->render('index',['user' => $user,'gly' => $user]);

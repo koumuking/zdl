@@ -9,6 +9,8 @@ use common\models\LoginForm;
 use common\models\User;
 use common\models\Weixin;
 use common\tools\tool;
+use yii\base\Application;
+use yii\base\Security;
 /**
  * Site controller
  */
@@ -25,11 +27,12 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error', 'index','weixin','wxmenu'],
+                        'actions' => ['login', 'error', 'index','weixin','wxmenu','test'],
                         'allow' => true,
+//                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout','test'],
+                        'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -63,17 +66,13 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        User::zhuceGly(2);
+//         User::zhuceGly(2);
         return $this->render('index');
     }
     
     public function actionWeixin()
     {
-// $postArr = $GLOBALS['HTTP_RAW_POST_DATA'];
-//         tool::logit($postArr);
-        tool::logit('kjhkjh');
         $model = new Weixin();
-        tool::logit($model);
         $model->response();
         
         
@@ -98,7 +97,20 @@ class SiteController extends Controller
      */
     public function actionTest()
     {
-        return $this->renderContent(' dfgd dgdfg index');
+//         $authKey = Yii::$app->security->generateRandomString();
+//         tool::printVar(1,$identity = Yii::$app->user->getisGuest());
+        $info = '';
+        if(Yii::$app->user->getisGuest()){
+            User::zhuceGly(2);
+            $info = '新登录进来';
+            
+        }
+        else{
+            $info = '老用户，直接进';
+        }
+        
+        
+        return $this->renderContent($info);
     }
     
     

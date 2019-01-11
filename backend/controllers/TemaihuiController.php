@@ -3,18 +3,17 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\sals;
-use app\models\Searchsals;
+use common\models\TemaiHui;
+use app\models\searchTemaiHui;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use common\tools\tool;
 
 /**
- * SalsController implements the CRUD actions for sals model.
+ * TemaihuiController implements the CRUD actions for TemaiHui model.
  */
-class SalsController extends Controller
+class TemaihuiController extends Controller
 {
     /**
      * @inheritdoc
@@ -22,39 +21,37 @@ class SalsController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+//                 'only'=>[],
+                'rules' => [
+                    [
+                        'actions' => ['login'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['logout','index','create','update','delete','view'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
                 ],
             ],
-            'access' => [
-                'class' => AccessControl::className(),
-//                 'only' => ['logout', 'signup'],
-                'rules' => [
-//                     [
-//                         'actions' => [],
-//                         'allow' => true,
-//                         'roles' => ['?'],
-//                     ],
-                    [
-                        'actions' => ['view','index','create','update','delete'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
         ];
     }
 
     /**
-     * Lists all sals models.
+     * Lists all TemaiHui models.
      * @return mixed
      */
     public function actionIndex()
     {
-//         tool::printVar(1,yii::$app->user->isGuest);
-        $searchModel = new Searchsals();
+        $searchModel = new searchTemaiHui();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -64,7 +61,7 @@ class SalsController extends Controller
     }
 
     /**
-     * Displays a single sals model.
+     * Displays a single TemaiHui model.
      * @param integer $id
      * @return mixed
      */
@@ -76,13 +73,13 @@ class SalsController extends Controller
     }
 
     /**
-     * Creates a new sals model.
+     * Creates a new TemaiHui model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new sals();
+        $model = new TemaiHui();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -94,7 +91,7 @@ class SalsController extends Controller
     }
 
     /**
-     * Updates an existing sals model.
+     * Updates an existing TemaiHui model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -113,7 +110,7 @@ class SalsController extends Controller
     }
 
     /**
-     * Deletes an existing sals model.
+     * Deletes an existing TemaiHui model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -126,15 +123,15 @@ class SalsController extends Controller
     }
 
     /**
-     * Finds the sals model based on its primary key value.
+     * Finds the TemaiHui model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return sals the loaded model
+     * @return TemaiHui the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = sals::findOne($id)) !== null) {
+        if (($model = TemaiHui::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

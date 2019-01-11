@@ -12,7 +12,7 @@ use Yii;
  * @property string $date
  * @property integer $status
  */
-class Sals extends \yii\db\ActiveRecord
+class TemaiHui extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
@@ -40,10 +40,10 @@ class Sals extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'intro' => 'Intro',
-            'date' => 'Date',
-            'status' => 'Status',
+//             'id' => 'ID',
+            'intro' => '活动介绍',
+            'date' => '开始日期',
+            'status' => '活动状态',
         ];
     }
 }

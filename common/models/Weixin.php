@@ -88,10 +88,7 @@ class Weixin extends \yii\db\ActiveRecord
             echo Yii::$app->request->get('echostr');
             exit;
         }
-
-        tool::logit('weixin');
 		    $postArr = $GLOBALS['HTTP_RAW_POST_DATA'];
-		    tool::logit('kjhkjh');
 		    libxml_disable_entity_loader ( true );
 		    $postObj = simplexml_load_string( $postArr, 'SimpleXMLElement', LIBXML_NOCDATA  );
 
