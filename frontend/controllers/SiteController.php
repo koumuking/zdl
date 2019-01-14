@@ -15,6 +15,8 @@ use frontend\models\ContactForm;
 use common\models\Weixin;
 use common\models\Wxuser;
 use common\models\User;
+use common\tools\tool;
+use yii\helpers\Url;
 
 /**
  * Site controller
@@ -80,24 +82,40 @@ class SiteController extends Controller
         $wx = Weixin::findOne(1);
         $arr = '';
         if(yii::$app->request->get('code')){
-            $arr = $wx->getWebAccesstoken(yii::$app->request->get('code'));
-            $user = Wxuser::findOne(['openid'=> $arr['openid']])->toArray();
-            if(!$user){
-                $user = $user->getWebUser($arr['access_token'],$arr['openid']);
+            
+            $session = yii::$app->session;
+            if(!$session->has('temp_user')){
+                
+                $arr = $wx->getWebAccesstokenByCode(yii::$app->request->get('code'));
+                if(!$arr){
+                    return $this->renderContent('getWebAccesstokenByCode 稍等一下，<a class="btn btn-info" href="'.Url::to(['site/index']).'">点击此处再试试~~</a>');
+                }
+                $user = Wxuser::findOne(['openid'=> $arr['openid']])->toArray();
+                if(!$user){
+                    $user = $user->getWebUser($arr['access_token'],$arr['openid']);
+                    if(!$user){
+                        return $this->renderContent('getWebUser 稍等一下，刷新试试~~');
+                    }
+                }
+                
+                $session->set('temp_user', $user);
+            
+            }else{
+                $user = $session->get('temp_user');
             }
+            
+            $gly  = '';
             $gly1 = Wxuser::findOne(['openid' => 'osFMi1diNjHcfIOB3f9VOxaGoADM']);
             $gly2 = Wxuser::findOne(['openid' => 'osFMi1ZOfIQqjJPQj6cGEFe6QKvY']);
-            
-            if($gly1['openid'] == $user['openid'] || $gly2['openid'] == $user['openid']){
+            if(($gly1['openid'] == $user['openid']) || ($gly2['openid'] == $user['openid'])){
+                User::zhuceGly(2);
                 return $this->render('index',['user' => $user,'gly' => $user]);
-//                 User::zhuceGly(2);
             }else{
-                return $this->render('index',['user' => $user,'gly' => $user]);
+                return $this->render('index',['user' => $user,'gly' => $gly2]);
             }
-            
-            return $this->render('index',['user' => $user,'gly' => $user]);
+
         }else{
-            $wx->webAuthorize()['access_token'];
+            $wx->webAuthorize();
             
         }
     }

@@ -92,8 +92,9 @@ class tool
     static function  logit($text){
         ob_start();
 		var_dump($text);
+		echo date('Y-m-d G:i:s A');
 		$str=ob_get_clean();
-		file_put_contents('../models/log.txt',$str,FILE_APPEND);
+		file_put_contents('../models/log.txt',$str.PHP_EOL,FILE_APPEND);
     }
     
     
@@ -143,6 +144,72 @@ class tool
             return preg_replace($pattern, $replacement, $str);
         }
         
+    }
+    
+    
+    /*
+     * pic文件缩放
+     * 
+     */
+    static function resizepic($file){
+        // This is the temporary file created by PHP
+       
+//         $uploadedfile = $_FILES['uploadfile']['tmp_name'];
+        
+        // Create an Image from it so we can do the resize
+        
+        $src = imagecreatefromjpeg($file);
+        
+        // Capture the original size of the uploaded image
+        
+        list($width,$height)=getimagesize($file);
+        
+        // For our purposes, I have resized the image to be
+        
+        // 600 pixels wide, and maintain the original aspect
+        
+        // ratio. This prevents the image from being "stretched"
+        
+        // or "squashed". If you prefer some max width other than
+        
+        // 600, simply change the $newwidth variable
+        
+        $newwidth=750;
+        
+        if($width>$newwidth){
+            $newheight=($height/$width)*750;
+        }else{
+            $newheight=$height;
+        }
+
+        $tmp=imagecreatetruecolor($newwidth,$newheight);
+        
+        // this line actually does the image resizing, copying from the original
+        
+        // image into the $tmp image
+        
+        imagecopyresampled($tmp,$src,0,0,0,0,$newwidth,$newheight,$width,$height);
+        
+        // now write the resized image to disk. I have assumed that you want the
+        
+        // resized, uploaded image file to reside in the ./images subdirectory.
+        
+//         $filename = "images/". $_FILES['uploadfile']['name'];
+        $dir = './uploads/'.date('Y-m-d');
+        if (!is_dir($dir)){
+            mkdir ($dir,0777);
+        }
+        $filename = $dir.'/'.time().yii::$app->security->generateRandomString(5).'.jpg';
+        
+        imagejpeg($tmp,$filename,90);
+        
+        imagedestroy($src);
+        
+        imagedestroy($tmp);
+        
+        // NOTE: PHP will clean up the temp file it created when the request
+        
+        // has completed.
     }
     
 }

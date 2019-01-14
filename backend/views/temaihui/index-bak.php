@@ -4,25 +4,25 @@ use yii\helpers\Html;
 use yii\widgets\ListView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\Searchsals */
+/* @var $searchModel app\models\searchTemaiHui */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Sals';
+$this->title = '特卖会';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="sals-index">
+<div class="temai-hui-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Sals', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('新 建', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'itemOptions' => ['class' => 'item'],
         'itemView' => function ($model, $key, $index, $widget) {
-            return Html::a(Html::encode($model->id), ['view', 'id' => $model->id]);
+            return Html::a(Html::encode($model->intro), ['view', 'id' => $model->id]);
         },
     ]) ?>
 </div>

@@ -9,6 +9,13 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use common\models\Good;
+use common\models\Goods;
+use backend\models\FileUpForm;
+use yii\web\UploadedFile;
+use common\tools\tool;
+use yii\helpers\BaseVarDumper;
+
 
 /**
  * TemaihuiController implements the CRUD actions for TemaiHui model.
@@ -30,7 +37,7 @@ class TemaihuiController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout','index','create','update','delete','view'],
+                        'actions' => ['logout','index','create','update','delete','view','create-new-good','test'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -51,13 +58,14 @@ class TemaihuiController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new searchTemaiHui();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+//         $searchModel = new searchTemaiHui();
+//         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+//         return $this->render('index', [
+//             'searchModel' => $searchModel,
+//             'dataProvider' => $dataProvider,
+//         ]);
+        return  $this->render('index');
     }
 
     /**
@@ -82,7 +90,7 @@ class TemaihuiController extends Controller
         $model = new TemaiHui();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['create-new-good', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -90,6 +98,51 @@ class TemaihuiController extends Controller
         }
     }
 
+    
+    
+    
+    /**
+     * Creates a new goods model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
+    public function actionCreateNewGood($id='')
+    {
+        $model = new Good();
+        $models = new Goods();
+        echo BaseVarDumper::dumpAsString($models);
+        exit();
+    
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['creatnewgood', 'id' => $model->id]);
+        } else {
+            return $this->renderContent('create');
+        }
+    }
+    
+    
+    /**
+     * Test.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
+    public function actionTest($id='')
+    {
+        
+         $model = new FileUpForm();
+
+        if (Yii::$app->request->isPost) {
+            $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
+            if ($model->upload()) {
+                echo 'ok';// 文件上传成功
+                return;
+            }
+        }
+
+        return $this->render('fileup', ['model' => $model]);
+    }
+    
+    
     /**
      * Updates an existing TemaiHui model.
      * If update is successful, the browser will be redirected to the 'view' page.

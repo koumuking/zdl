@@ -208,13 +208,13 @@ class Weixin extends \yii\db\ActiveRecord
      "refresh_token":"REFRESH_TOKEN",
      "openid":"OPENID",
      "scope":"SCOPE"
-     }
+     }    此函数获取重复的用户《《《《《《《----------------------------------
      */
     public function getWebAccesstoken($code)
     {
-//      tools::logit("开始oauth 获取token");
         $wx = self::findOne(1);
         if(time()- (int)$wx -> refresh_token_expires > 2591000){
+            
             return $this->getWebAccesstokenByCode($code,$wx);
         }
         $arr='';
@@ -246,18 +246,38 @@ class Weixin extends \yii\db\ActiveRecord
     }
     
     
-    public function getWebAccesstokenByCode($code,$wx){
-        $wx_url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" . $wx->appid . "&secret=" . $wx->appsecret. "&code=" . $code . "&grant_type=authorization_code";
-        $arr =json_decode( tool::http_curl($wx_url),true);
-        if($wx){
-            $wx->web_accessToken = $arr['access_token'];
-            $wx->refresh_token = $arr['refresh_token'];
-            $wx->web_accessToken_expires_in = $arr['expires_in'];
-            $wx->web_accessToken_expires = time();
-            $wx->save();
+    public function getWebAccesstokenByCode($code){
+        if(time()-$this->web_accessToken_expires >= $this->web_accessToken_expires_in){
+            $arr = $this->refrshWebToken();
+            return $arr;
         }
-            
-        echo 'getWebAccesstokenByCode';
+        $wx_url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" . $this->appid . "&secret=" . $this->appsecret. "&code=" . $code . "&grant_type=authorization_code";
+        $arr =json_decode( tool::http_curl($wx_url),true);
+//         tool::logit($arr);
+        if(!isset($arr['errcode'])){
+            $this->web_accessToken = $arr['access_token'];
+            $this->refresh_token = $arr['refresh_token'];
+            $this->web_accessToken_expires_in = $arr['expires_in'];
+            $this->web_accessToken_expires = time();
+            $this->save();
+            return($arr);
+        }else{
+            return $arr = $this->refrshWebToken();
+        }
+    }
+    
+    
+    public function refrshWebToken(){
+        $r_url = 'https://api.weixin.qq.com/sns/oauth2/refresh_token?appid='.$this->appid.'&grant_type=refresh_token&refresh_token='.$this->refresh_token;
+        $arr = json_decode(tool::http_curl($r_url),true);
+        if(isset($arr['errcode'])){
+            return false;
+        }
+        $this->web_accessToken = $arr['access_token'];
+        $this->refresh_token = $arr['refresh_token'];
+        $this->web_accessToken_expires_in = $arr['expires_in'];
+        $this->web_accessToken_expires = time();
+        $this->save();
         return($arr);
     }
     

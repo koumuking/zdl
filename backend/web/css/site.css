@@ -3,6 +3,33 @@ body {
     height: 100%;
 }
 
+.temaihui{
+	background-color: silver;
+	width: 150px;
+	height: 160px;
+	/* border: 1px solid; */
+	float: left;
+	margin-right: 8px;
+	margin-bottom: 8px;
+}
+.xinzeng{
+	margin-bottom: 20px;
+}
+.temaihui .pic{
+	background-color: white;
+	margin:0 auto;
+	width: 90%;
+	height: 120px;
+	margin-bottom: 5px;
+}
+.temaihui .intro{
+	background-color: white;
+	margin:0 auto;
+	width: 90%;
+	height: 30px;
+}
+
+
 .wrap {
     min-height: 100%;
     height: auto;

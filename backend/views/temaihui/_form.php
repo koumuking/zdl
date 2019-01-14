@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use common\tools\tool;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\TemaiHui */
@@ -12,14 +13,21 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'intro')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'intro')->textarea(['maxlength' => true,'rows'=>5]) ?>
+    
+    <?= $form->
+    field($model, 'date',['template'=>'{label}<div class="input-group">{input}<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div>{hint}{error}'])->
+    textInput(['value' => date('Y.m.d'),'id'=>'datetimepicker'])
+    ?>
+    
+    
+    
+    <?php ?>
 
-    <?= $form->field($model, 'date')->textInput() ?>
-
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?php $form->field($model, 'status')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?=Html::submitButton('下一步',['class'=>'btn btn-success']); //Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

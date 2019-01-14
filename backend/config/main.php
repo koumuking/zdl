@@ -12,10 +12,17 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
+//     'controller' => [
+//             'class'=>'backend\controllers\TemaihuiController',
+//             'on EVENT_BEFORE_ACTION'=>function (){
+//                 echo 'forst~~~';
+//             }
+//         ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
+        
 //         'user' => [
 //             'identityClass' => 'common\models\User',
 //             'enableAutoLogin' => true,

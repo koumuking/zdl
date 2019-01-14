@@ -9,6 +9,7 @@ use yii\helpers\Url;
 use common\tools\tool;
 
 
+
 ?>
 
 <div class="siteindex">
@@ -18,15 +19,15 @@ use common\tools\tool;
 			src="<?php echo tool::headimagSize($gly['headimgurl'],46) //Yii::getAlias('@web/pic/touxiang.jpg')?>"> <span
 			class='touxiangtitle'><?php echo $gly['nickname']?></span>
 	</div>
-	<div class="tip">
+	<div class="alert—check tip">
        <img class='khtouxiang' alt=""
 			src="<?php echo tool::headimagSize($user['headimgurl'], 46) //Yii::getAlias('@web/pic/touxiang.jpg')?>">
 			<span class='hykh'><?php  
-			if($user['openid'] !== $gly['openid']){
-			    echo  ('嗨~~ '.$user['nickname'].': 希望你在这能挑到心仪的货哦！');
+			if($user['openid'] != $gly['openid']){
+			    echo  ('嗨~~ '.$user['nickname'].':<br> 希望你在这能挑到心仪的货哦！');
 			}else{
 // 			    $glyUrl = Url::to(['@web/sals']);
-			    echo ('嗨~~ '.$gly['nickname'].': 多上传些货哦！大家都等着呢~~<h3><a href="http://zdldc.com/zdl/backend/web/index.php?r=temaihui">点击此处上传商品</a></h3>');
+			    echo ('嗨~~ '.$gly['nickname'].': 多上传些货哦！大家都等着呢~~<h3><a class="btn btn-info" href="http://zdldc.com/zdl/backend/web/index.php?r=temaihui">点击此处上传商品</a></h3>');
     } 
 			?> </span>
 	</div>

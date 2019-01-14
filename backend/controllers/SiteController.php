@@ -66,7 +66,6 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-//         User::zhuceGly(2);
         return $this->render('index');
     }
     

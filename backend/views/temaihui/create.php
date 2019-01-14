@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\TemaiHui */
 
-$this->title = 'Create Temai Hui';
-$this->params['breadcrumbs'][] = ['label' => 'Temai Huis', 'url' => ['index']];
+$this->title = '新增活动';
+$this->params['breadcrumbs'][] = ['label' => '特卖会', 'url' => ['temaihui/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="temai-hui-create">

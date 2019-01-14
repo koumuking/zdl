@@ -119,7 +119,7 @@ class Wxuser extends \yii\db\ActiveRecord implements IdentityInterface
         $arr =json_decode( tool::http_curl($wx_url),true);
         
         if(isset($arr['errcode'])){
-              tool::printVar(1,$arr);
+              return false;
          }
          
          $this->openid=$arr['openid'];
