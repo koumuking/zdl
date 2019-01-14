@@ -15,6 +15,7 @@ use backend\models\FileUpForm;
 use yii\web\UploadedFile;
 use common\tools\tool;
 use yii\helpers\BaseVarDumper;
+use backend;
 
 
 /**
@@ -108,16 +109,20 @@ class TemaihuiController extends Controller
      */
     public function actionCreateNewGood($id='')
     {
-        $model = new Good();
-        $models = new Goods();
-        echo BaseVarDumper::dumpAsString($models);
-        exit();
-    
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['creatnewgood', 'id' => $model->id]);
-        } else {
-            return $this->renderContent('create');
+//         echo BaseVarDumper::dumpAsString(yii::$container->has('yii\web\Controller'));
+//         exit();
+        
+         $model = new FileUpForm();
+
+        if (Yii::$app->request->isPost) {
+            $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
+            if ($model->upload()) {
+                echo 'ok';// 文件上传成功
+                return;
+            }
         }
+
+        return $this->render('fileup', ['model' => $model]);
     }
     
     
