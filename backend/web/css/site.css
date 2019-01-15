@@ -22,6 +22,8 @@ body {
 	height: 120px;
 	margin-bottom: 5px;
 }
+
+
 .temaihui .intro{
 	background-color: white;
 	margin:0 auto;
@@ -31,12 +33,18 @@ body {
 
 .upyifu{
 	width: 155px;
-    height: 171px;
+    height: 271px;
     background-image:url("../pic/yifu-back.jpg");
+	background-repeat: no-repeat;
     float: left;
     margin-bottom: 15px;
     margin-right: 15px;
 	border: 1px solid silver;
+}
+
+.upyifu .form-group{
+	bottom: -211px;
+	position: relative;
 }
 
 .upyifu input[type='file']{
@@ -45,7 +53,7 @@ body {
 }
 
 .upyifu label{
-	margin: 12px 28px;
+	margin: 12px 36px;
 }
 .wrap {
     min-height: 100%;

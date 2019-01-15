@@ -2,6 +2,7 @@
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use backend\assets\temaihuiAsset;
+use yii\helpers\BaseHtml;
 
 ?>
 
@@ -17,7 +18,7 @@ temaihuiAsset::register($this);
 
     
     <div class='upyifu'>
-    <?= $form->field($model, 'imageFiles[0]')->fileInput([ 'accept' => 'image/*'])->label(null,['class'=>'btn btn-primary']) ?>
+    <?= $form->field($model, 'imageFiles[0]')->fileInput([ 'accept' => 'image/*' ])->label(null,['class'=>'btn btn-primary']) ?>
     </div>
     <div class='upyifu'>
     <?= $form->field($model, 'imageFiles[1]')->fileInput([ 'accept' => 'image/*'])->label(null,['class'=>'btn btn-primary']) ?>

@@ -16,5 +16,10 @@ return [
         //             'name' => 'advanced-frontend',
             'name' => 'advanced-zdl',
         ],
+        'assetManager' =>array (
+            'class' => 'yii\web\AssetManager',
+            'appendTimestamp' => true,
+            'forceCopy' => false,
+        ),
     ],
 ];

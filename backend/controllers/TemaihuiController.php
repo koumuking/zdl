@@ -16,6 +16,8 @@ use yii\web\UploadedFile;
 use common\tools\tool;
 use yii\helpers\BaseVarDumper;
 use backend;
+use yii\helpers\Html;
+use yii\helpers\VarDumper;
 
 
 /**
@@ -91,7 +93,7 @@ class TemaihuiController extends Controller
         $model = new TemaiHui();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['create-new-good', 'id' => $model->id]);
+             return $this->redirect(['create-new-good', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -111,14 +113,25 @@ class TemaihuiController extends Controller
     {
 //         echo BaseVarDumper::dumpAsString(yii::$container->has('yii\web\Controller'));
 //         exit();
-        
+        if(!Yii::$app->request->get('id')){
+            $this->goBack();
+        }
          $model = new FileUpForm();
-
-        if (Yii::$app->request->isPost) {
+//          $model->load(Yii::$app->request->post());
+//          tool::printVar(false,$model);
+//          if($model->validate()){
+//              echo 'ok';
+//          }else {
+//              tool::printVar(1,$model->errors);
+//          }
+        if (Yii::$app->request->isPost&&$model->load(Yii::$app->request->post())) {
+            
             $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
-            if ($model->upload()) {
-                echo 'ok';// 文件上传成功
-                return;
+            if ($model->validate()) {
+                if ($model->upload()) {
+                    echo 'ok';// 文件上传成功
+                    return;
+                }
             }
         }
 

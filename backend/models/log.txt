@@ -1,0 +1,580 @@
+bool(false)
+2019-01-15 2:04:40 AM
+bool(false)
+2019-01-15 2:04:40 AM
+bool(false)
+2019-01-15 2:04:40 AM
+bool(false)
+2019-01-15 2:04:40 AM
+bool(false)
+2019-01-15 2:04:40 AM
+bool(false)
+2019-01-15 2:04:40 AM
+bool(false)
+2019-01-15 2:04:40 AM
+bool(false)
+2019-01-15 2:04:40 AM
+bool(false)
+2019-01-15 2:04:41 AM
+bool(false)
+2019-01-15 2:04:41 AM
+bool(false)
+2019-01-15 2:04:41 AM
+bool(false)
+2019-01-15 2:04:41 AM
+bool(false)
+2019-01-15 2:04:41 AM
+bool(false)
+2019-01-15 2:04:41 AM
+bool(false)
+2019-01-15 2:04:41 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:42 AM
+bool(false)
+2019-01-15 2:04:48 AM
+bool(false)
+2019-01-15 2:04:48 AM
+bool(false)
+2019-01-15 2:04:48 AM
+bool(false)
+2019-01-15 2:04:48 AM
+bool(false)
+2019-01-15 2:04:48 AM
+bool(false)
+2019-01-15 2:04:48 AM
+bool(false)
+2019-01-15 2:04:48 AM
+bool(false)
+2019-01-15 2:08:57 AM
+bool(false)
+2019-01-15 2:08:57 AM
+bool(false)
+2019-01-15 2:08:57 AM
+bool(false)
+2019-01-15 2:08:57 AM
+bool(false)
+2019-01-15 2:08:57 AM
+bool(false)
+2019-01-15 2:08:57 AM
+bool(false)
+2019-01-15 2:08:57 AM
+bool(false)
+2019-01-15 2:08:57 AM
+bool(false)
+2019-01-15 2:08:57 AM
+bool(false)
+2019-01-15 2:08:57 AM
+bool(false)
+2019-01-15 2:08:57 AM
+bool(false)
+2019-01-15 2:08:57 AM
+bool(false)
+2019-01-15 2:08:57 AM
+bool(false)
+2019-01-15 2:08:57 AM
+bool(false)
+2019-01-15 2:08:57 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:08:58 AM
+bool(false)
+2019-01-15 2:09:04 AM
+bool(false)
+2019-01-15 2:09:04 AM
+bool(false)
+2019-01-15 2:09:04 AM
+bool(false)
+2019-01-15 2:09:04 AM
+bool(false)
+2019-01-15 2:09:04 AM
+bool(false)
+2019-01-15 2:09:04 AM
+bool(false)
+2019-01-15 2:09:04 AM

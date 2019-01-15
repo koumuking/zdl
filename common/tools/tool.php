@@ -207,9 +207,12 @@ class tool
         
         imagedestroy($tmp);
         
+        
         // NOTE: PHP will clean up the temp file it created when the request
         
         // has completed.
+        
+        return $filename;
     }
     
 }

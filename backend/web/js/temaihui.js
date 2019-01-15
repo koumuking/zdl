@@ -9,7 +9,7 @@ $(".upyifu input[type='file']").change(function(){
      reader.onload = function(d) {
          // 图片base64化
     	 newUrl = this.result;
-    	 div.css({"background-image":"url("+newUrl+")","background-size":"80px 60px"});
+    	 div.css({"background-image":"url("+newUrl+")","background-size":"155px"});
      };
 	 
 	console.log(newUrl);
