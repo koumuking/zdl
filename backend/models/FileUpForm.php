@@ -18,6 +18,7 @@ class FileUpForm extends Model
     public $imageFiles;
     public $intro;
     public $price;
+    public $updeated;
 //     public $salsid;
 //     public $goodsid;
     
@@ -27,7 +28,7 @@ class FileUpForm extends Model
     {
         return [
             [['intro', 'price'], 'required'],
-//             [['imageFiles'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg', 'maxFiles' => 7],
+            [['imageFiles'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg', 'maxFiles' => 7],
             ['intro','string','max' => 255,'min'=>3],
             [['imageFiles'],'anyselect', 'skipOnEmpty' => false],
             ['price','integer']
@@ -45,29 +46,10 @@ class FileUpForm extends Model
     
     public function anyselect($attribute,$params){
         
-        $IValidator = new ImageValidator();
-        $IValidator->extensions=(['jpg']);
-        $ok = false;
-        $count=0;
-//         tool::printVar(1,$this->imageFiles);
-        foreach ($this->imageFiles as $image){
-            
-            if($image){
-                
-                if($IValidator->validate($image)){
-                    $this->addError($attribute, "请选择Jpg图片"); 
-                    return false;
-                }else{
-                    $ok = true;
-                }
-            }
-            $count++;
-            if($count==5 && !$ok){
-                $this->addError($attribute, "至少选择一张图片");
-            }
+        if(count($this->imageFiles)<=0){
+            $this->addError($attribute, "请至少选择一张Jpg图片");
         }
-        
-//         tool::printVar(1,$ok);
+        return;
     }
     
     public function upload()

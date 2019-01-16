@@ -117,21 +117,12 @@ class TemaihuiController extends Controller
             $this->goBack();
         }
          $model = new FileUpForm();
-//          $model->load(Yii::$app->request->post());
-//          tool::printVar(false,$model);
-//          if($model->validate()){
-//              echo 'ok';
-//          }else {
-//              tool::printVar(1,$model->errors);
-//          }
+
         if (Yii::$app->request->isPost&&$model->load(Yii::$app->request->post())) {
             
             $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
-            if ($model->validate()) {
-                if ($model->upload()) {
-                    echo 'ok';// 文件上传成功
-                    return;
-                }
+            if ($model->upload()) {
+                $model->updeated = 'ok';
             }
         }
 
@@ -152,8 +143,7 @@ class TemaihuiController extends Controller
         if (Yii::$app->request->isPost) {
             $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
             if ($model->upload()) {
-                echo 'ok';// 文件上传成功
-                return;
+                $model->updeated = 'ok';
             }
         }
 

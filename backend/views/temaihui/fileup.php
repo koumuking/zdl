@@ -10,6 +10,10 @@ use yii\helpers\BaseHtml;
 temaihuiAsset::register($this);
 
 ?>
+<?php if(isset($updeated)){
+echo '再上传一件衣服';
+}?>
+
 <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
 
     <?= $form->field($model,'intro')->textarea(['row'=>5]) ?>

@@ -177,18 +177,24 @@ class tool
         $newwidth=750;
         
         if($width>$newwidth){
-            $newheight=($height/$width)*750;
+            $newheight=($height/$width)*850;
         }else{
             $newheight=$height;
         }
+        
+        $thumbheigh = $height/$width*200;
+        $thumbwidth = 200;
 
         $tmp=imagecreatetruecolor($newwidth,$newheight);
-        
+        $thumb =imagecreatetruecolor($thumbwidth,$thumbheigh);
         // this line actually does the image resizing, copying from the original
         
         // image into the $tmp image
         
         imagecopyresampled($tmp,$src,0,0,0,0,$newwidth,$newheight,$width,$height);
+        
+        //创建图片的小图width = 200
+        imagecopyresampled($thumb,$src,0,0,0,0,$thumbwidth,$thumbheigh,$width,$height);
         
         // now write the resized image to disk. I have assumed that you want the
         
@@ -198,11 +204,16 @@ class tool
         $dir = './uploads/'.date('Y-m-d');
         if (!is_dir($dir)){
             mkdir ($dir,0777);
+            mkdir ($dir.'/thumb',0777);
         }
-        $filename = $dir.'/'.time().yii::$app->security->generateRandomString(5).'.jpg';
+        $name = time().yii::$app->security->generateRandomString(5).'.jpg';
+        $filename = $dir.'/'.$name;
+        $thumbname = $dir.'/thumb/'.$name;
         
         imagejpeg($tmp,$filename,90);
+        imagejpeg($thumb,$thumbname,90);
         
+        imagedestroy($thumb);
         imagedestroy($src);
         
         imagedestroy($tmp);
