@@ -10,10 +10,12 @@ use yii\helpers\BaseHtml;
 temaihuiAsset::register($this);
 
 ?>
-<?php if(isset($updeated)){
-echo '再上传一件衣服';
-}?>
-
+<?php 
+// if(isset($updatedYii::$app->request->get('updated'))){
+// echo '<div class="alert—check">再上传一件衣服</div>';
+// }
+?>
+<div class="bg-info">再上传一件衣服</div>
 <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
 
     <?= $form->field($model,'intro')->textarea(['row'=>5]) ?>

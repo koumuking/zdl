@@ -18,6 +18,7 @@ use yii\helpers\BaseVarDumper;
 use backend;
 use yii\helpers\Html;
 use yii\helpers\VarDumper;
+use backend\models\backend\models;
 
 
 /**
@@ -116,13 +117,15 @@ class TemaihuiController extends Controller
         if(!Yii::$app->request->get('id')){
             $this->goBack();
         }
+        
+      
          $model = new FileUpForm();
 
         if (Yii::$app->request->isPost&&$model->load(Yii::$app->request->post())) {
             
             $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
             if ($model->upload()) {
-                $model->updeated = 'ok';
+                $this->refresh();
             }
         }
 
