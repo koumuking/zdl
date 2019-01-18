@@ -108,11 +108,13 @@ class SiteController extends Controller
             $gly  = '';
             $gly1 = Wxuser::findOne(['openid' => 'osFMi1diNjHcfIOB3f9VOxaGoADM']);
             $gly2 = Wxuser::findOne(['openid' => 'osFMi1ZOfIQqjJPQj6cGEFe6QKvY']);
+            $tmh = TemaiHui::find()->where(['id'=>14])->with('goods.good')->all();
+//             tool::printVar(1,$tmh);
             if(($gly1['openid'] == $user['openid']) || ($gly2['openid'] == $user['openid'])){
                 User::zhuceGly(2);
-                return $this->render('index',['user' => $user,'gly' => $user]);
+                return $this->render('index',['user' => $user,'gly' => $user,'tmh'=>$tmh]);
             }else{
-                return $this->render('index',['user' => $user,'gly' => $gly2]);
+                return $this->render('index',['user' => $user,'gly' => $gly2,'tmh'=>$tmh]);
             }
 
         }else{
@@ -188,8 +190,8 @@ class SiteController extends Controller
 //         foreach ($tmh as $arr){
 //             tool::printVar(false,$arr);
 //         }
-        tool::printVar(1,$tmh[0]['goods'][1]['good']);
-//         return $this->render('about');
+//         tool::printVar(1,$tmh[0]['goods'][1]['good']);
+        return $this->render('about',['tmh'=>$tmh]);
     }
 
     /**

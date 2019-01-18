@@ -7,6 +7,7 @@
 //$this->title = 'My Yii Application';
 use yii\helpers\Url;
 use common\tools\tool;
+use common\models\Goods;
 
 
 
@@ -39,65 +40,31 @@ use common\tools\tool;
 				<h4>15日</h4>
 			</div>
 			<div class="col-xs-10">
-
-				<img class='yifu' data-pic="yifu1.jpg" alt="" src="<?php echo Yii::getAlias('@web/pic/yifu1.jpg')?>">
-				
-				
-				
-					
-					 <img
-					class='yifu' data-pic="yifu2.jpg" alt=""
-					src="<?php echo Yii::getAlias('@web/pic/yifu2.jpg')?>">
-					
 			
-					 <img
-					class='yifu' data-pic="yifu3.jpg"  alt=""
-					src="<?php echo Yii::getAlias('@web/pic/yifu3.jpg')?>">
-				
-				
-					<img
-					class='yifu' data-pic="yifu4.jpg" alt=""
-					src="<?php echo Yii::getAlias('@web/pic/yifu4.jpg')?>">
-					
-					
+			<?php if($tmh[0]):?>
+
+				    <?php foreach ($tmh[0]['goods'] as $goods):?>
+				    
+    				    <?php foreach ($goods['good'] as $good):?>
+    				    <img class='yifu' data-pic="yifu1.jpg" alt="" src="<?php echo '../../backend/web/'.$good['picurl'] //Yii::getAlias('@web/pic/yifu1.jpg')?>">
+                        <?php endforeach;?>
 					
 				<div class='yifuinfo'>
-					<p>音儿品牌，秋季女装，货号124582，颜色：黑色</p>
-					<p>价格：1折，220</p>
+					<p><?=$goods['intro'] ?></p>
+					<p><?=$goods['price'] ?></p>
 					<!--这是一段注释。注释不会在浏览器中显示。<p class="btn btn-success" onclick="window.location.href='<?php //echo Url::to(['site/pay', 'id' => 100]);?>'" > -->
 <!-- 					<p class="btn btn-success" data-pic='fukuanma.jpg'>	 -->
 <!-- 						我要这件 <span class='glyphicon glyphicon-arrow-up'></span> -->
 <!-- 					</p> -->
 					<button type="button" class="btn btn-info" data-toggle="modal" data-target=".bs-example-modal-lg">我要这件 <span class='glyphicon glyphicon-arrow-up'></span></button>
 				</div>
-				<img class='yifu' data-pic="yifu5.jpg" alt=""
-					src="<?php echo Yii::getAlias('@web/pic/yifu5.jpg')?>"> <img
-					class='yifu' data-pic="yifu6.jpg" alt=""
-					src="<?php echo Yii::getAlias('@web/pic/yifu6.jpg')?>">
-				<div class='yifuinfo'>
-					<p>音儿品牌，秋季女装，货号124582，颜色：黑色</p>
-					<p>价格：1折，220</p>
-					<p class="btn btn-success" data-pic='fukuanma.jpg'>	
-						我要这件 <span class='glyphicon glyphicon-arrow-up'></span>
-					</p>
-				</div>
-				<img class='yifu' data-pic="yifu7.jpg" alt=""
-					src="<?php echo Yii::getAlias('@web/pic/yifu7.jpg')?>"> <img
-					class='yifu' data-pic="yifu8.jpg" alt=""
-					src="<?php echo Yii::getAlias('@web/pic/yifu8.jpg')?>"> <img
-					class='yifu' data-pic="yifu9.jpg" alt=""
-					src="<?php echo Yii::getAlias('@web/pic/yifu9.jpg')?>"> <img
-					class='yifu' data-pic="yifu10.jpg" alt=""
-					src="<?php echo Yii::getAlias('@web/pic/yifu10.jpg')?>">
-				<div class='yifuinfo'>
-					<p>音儿品牌，秋季女装，货号124582，颜色：黑色</p>
-					<p>价格：1折，220</p>
-					<p class="btn btn-success" data-pic='fukuanma.jpg'>	
-						我要这件 <span class='glyphicon glyphicon-arrow-up'></span>
-					</p>
-				</div>
-
-
+				
+				<?php endforeach;?>
+            <?php else :?>
+            
+            <h1>暂无活动</h1>
+            
+            <?php endif;?>
 			</div>
 
 		</div>

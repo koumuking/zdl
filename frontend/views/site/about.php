@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 
 use yii\helpers\Html;
+use common\tools\tool;
 
 $this->title = 'About';
 $this->params['breadcrumbs'][] = $this->title;
@@ -14,3 +15,19 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <code><?= __FILE__ ?></code>
 </div>
+
+
+<?php 
+// tool::printVar(FALSE,$tmh);
+// tool::printVar(FALSE,$tmh[0]);
+
+foreach ($tmh[0]['goods'] as $arr){
+    echo '<ul>';
+    foreach ($arr['good'] as $pic)    
+        echo '<li>';
+            tool::printVar(FALSE,$pic['picurl']);
+        echo '</li>';
+    echo '</ul>';
+}
+?>
+

@@ -22,7 +22,7 @@ $('.yifu,.btn-success').click(function (){
 	if($(this).attr('data-pic') == 'fukuanma.jpg'){
 		image = img;
 	}else{
-		image.src='./pic/'+$(this).attr('data-pic');
+		image.src=$(this).attr('src');
 	}
 	
 	
