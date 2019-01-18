@@ -8,6 +8,7 @@
 use yii\helpers\Url;
 use common\tools\tool;
 use common\models\Goods;
+use yii\helpers\Html;
 
 
 
@@ -94,11 +95,11 @@ use common\models\Goods;
     <label for="exampleInputEmail1">收货地址</label>
     <input type="email" class="form-control" id="exampleInputEmail1" placeholder="收货地址">
   </div>
+  <?=Html::csrfMetaTags()?>
 </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success" data-dismiss="modal" data-pic='fukuanma.jpg'>下一步</button>
+        <button type="button" class="ajaxbtn btn btn-success" data-dismiss="modal" data-pic='fukuanma.jpg'>确定</button>
       </div>
     </div>
   </div>

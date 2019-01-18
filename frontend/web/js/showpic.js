@@ -11,6 +11,20 @@ var img = new Image();
 //    alert("image is loaded");
  };
 
+ 
+ 
+ $('.ajaxbtn').click(function(){
+	 $.ajax({
+		 url:"http://zdldc.com/zdl/frontend/web/index.php?r=site/ajaxpost",
+		 type:'post',
+		 data:{code:123},
+		 success:function(data,status){
+			 alert(data+status);
+		 }
+	 });
+ });
+ 
+ 
 
 $('.yifu,.btn-success').click(function (){
 	$('body').prepend('<div class="piczhezhao"></div>');

@@ -123,6 +123,21 @@ class SiteController extends Controller
         }
     }
 
+    
+    
+    
+    /**
+     * 接受来自AJAX post.
+     *
+     * @return mixed
+     */
+    public function actionAjaxpost()
+    {
+        echo '{code:OK}';
+    }
+    
+    
+    
     /**
      * Logs in a user.
      *
