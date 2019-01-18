@@ -174,10 +174,10 @@ class tool
         
         // 600, simply change the $newwidth variable
         
-        $newwidth=750;
+        $newwidth=850;
         
         if($width>$newwidth){
-            $newheight=($height/$width)*850;
+            $newheight=($height/$width)*$newwidth;
         }else{
             $newheight=$height;
         }

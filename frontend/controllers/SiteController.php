@@ -183,6 +183,7 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
+        tool::printVar(1,yii::$app->module  );
         return $this->render('about');
     }
 

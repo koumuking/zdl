@@ -11,6 +11,11 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
+    'controllerMap'=>[
+        'site'=>[
+            'class'=>'frontend\controllers\SiteController',
+            'on EVENT_BEFORE_ACTION'=>function (){echo("sssssss");}
+        ]],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
