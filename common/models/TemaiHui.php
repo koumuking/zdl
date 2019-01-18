@@ -46,4 +46,21 @@ class TemaiHui extends \yii\db\ActiveRecord
             'status' => '活动状态',
         ];
     }
+    
+    
+    /*
+     * 返回此次ID特卖会全部信息
+     * 
+     */
+    public function getAll($id){
+        $this->find();
+    }
+    
+    public function getGoods(){
+        return $this->hasMany(Goods::className(), ['salsid'=>'id']);
+    }
+    
+    public function getGood(){
+        return $this->hasMany(Good::className(), ['goodsid'=>'id'])->via('goods');
+    }
 }

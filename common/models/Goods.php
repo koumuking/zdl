@@ -47,4 +47,9 @@ class Goods extends \yii\db\ActiveRecord
             'salsid' => 'Salsid',
         ];
     }
+    
+    
+    public function getGood(){
+        return $this->hasMany(Good::className(), ['goodsid'=>'id']);
+    }
 }

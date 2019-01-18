@@ -17,6 +17,7 @@ use common\models\Wxuser;
 use common\models\User;
 use common\tools\tool;
 use yii\helpers\Url;
+use common\models\TemaiHui;
 
 /**
  * Site controller
@@ -183,8 +184,12 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        tool::printVar(1,yii::$app->module  );
-        return $this->render('about');
+        $tmh = TemaiHui::find()->where(['id'=>13])->with('goods.good')->all();
+//         foreach ($tmh as $arr){
+//             tool::printVar(false,$arr);
+//         }
+        tool::printVar(1,$tmh[0]['goods'][1]['good']);
+//         return $this->render('about');
     }
 
     /**
