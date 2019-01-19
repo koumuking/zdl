@@ -53,6 +53,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'temaihui/<id:\d+>'=>'temaihui/create-new-good/'
             ],
         ],
         

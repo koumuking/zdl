@@ -63,7 +63,9 @@ body {
 	display: inline; 
 }
 
-
+.modal-tip{
+	display: none;
+}
 .col-xs-9{
 	padding: 15px;
 }
