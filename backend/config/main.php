@@ -47,13 +47,15 @@ return [
             'errorAction' => 'site/error',
         ],
         /*
+         *url管理 
+         */
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+        
     ],
     'params' => $params,
 ];

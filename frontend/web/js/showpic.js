@@ -14,6 +14,7 @@ var img = new Image();
  
  
  $('.ajaxbtn').click(function(){
+	 $('.modal-body').html('<h3>正在处理，请稍候~~</h3>');
 	 $.ajax({
 		 url:"http://zdldc.com/zdl/frontend/web/index.php?r=site/ajaxpost",
 		 type:'post',

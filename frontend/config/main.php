@@ -20,17 +20,41 @@ return [
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
-//         'user' => [
-//             'identityClass' => 'common\models\User',
-//             'enableAutoLogin' => true,
-//             'identityCookie' => ['name' => 'zdl', 'httpOnly' => true],
-// //             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
-//         ],
-//         'session' => [
-//             // this is the name of the session cookie used for login on the frontend
-// //             'name' => 'advanced-frontend',
-//             'name' => 'advanced-zdl',
-//         ],
+
+
+/*
+ * 暂时不起作用
+ * 
+        'controller'=>[
+            'class'=>'yii\web\Controller',
+            'controller'=>'site',
+            'on EVENT_BEFORE_ACTION'=>function (){
+                echo 'wwwwwwwwww';
+            }
+        ],
+        */
+        
+        
+        /*
+         * 
+         * 
+         * 在common内配置
+        'user' => [
+            'identityClass' => 'common\models\User',
+            'enableAutoLogin' => true,
+            'identityCookie' => ['name' => 'zdl', 'httpOnly' => true],
+//             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
+        ],
+ * 
+ */
+        /*
+        'session' => [
+            // this is the name of the session cookie used for login on the frontend
+//             'name' => 'advanced-frontend',
+            'name' => 'advanced-zdl',
+        ],
+ * 
+ */
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -43,14 +67,33 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        
         /*
+         * 
+         * 
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'enableStrictParsing' => true,
+            'showScriptName' => false,
+            'rules' => [
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'user'],
+            ],
+        ]
+        
+        */
+        
+        /*
+         * 
+         * */
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'about'=>'site/about'
             ],
         ],
-        */
+        
+       
     ],
     'params' => $params,
 ];

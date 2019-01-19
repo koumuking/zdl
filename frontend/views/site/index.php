@@ -96,10 +96,11 @@ use yii\helpers\Html;
     <input type="email" class="form-control" id="exampleInputEmail1" placeholder="收货地址">
   </div>
   <?=Html::csrfMetaTags()?>
+  <button type="button" class="ajaxbtn btn btn-primary" >确定</button>
 </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="ajaxbtn btn btn-success" data-dismiss="modal" data-pic='fukuanma.jpg'>确定</button>
+        <button type="button" class="next-but btn btn-success" data-dismiss="modal" data-pic='fukuanma.jpg'>下一步</button>
       </div>
     </div>
   </div>
