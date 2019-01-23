@@ -11,46 +11,85 @@ var img = new Image();
 //    alert("image is loaded");
  };
 
- 
+ var goodsid;
  
  $('.ajaxbtn').click(function(){
 	 var err =false;
 	 if($('#InputName').val() == ''){
 		 err =true;
 		 $('.nametip').html('姓名为必填项');
+	 }else{
+		 $('.nametip').html('');
 	 }
+	 
 	 if(!$('#InputTel').val().match(/^1[345678]\d{9}$/)){
 		 err =true;
 		 $('.teltip').html('请输入电话号码');
+	 }else{
+		 $('.teltip').html('');
 	 }
+	 
 	 if($('#InputAdd').val() == ''){
 		 err =true;
 		 $('.addtip').html('地址为必填项');
+	 }else{
+		 $('.addtip').html('');
 	 }
 	 if(err){
 		 return;
 	 }
+	 var Fdata={
+			 'UserOrder':{
+				 'name':$('#InputName').val(),
+				 'tel':$('#InputTel').val(),
+				 'add':$('#InputAdd').val(),
+				 'openid':$('.modal-body').attr('data'),
+				 'goodsid':goodsid,
+			 },
+			 '_csrf-frontend':$('meta[name="csrf-token"]').attr("content"),
+	 };
 	 $('.modal-body').hide();
 	 $('.modal-tip').show();
 	 $('.modal-tip').html('<h5>正在处理，请稍候~~</h5>');
+	 alert(goodsid);
 	 $.ajax({
-		 url:"http://zdldc.com/zdl/frontend/web/site/ajaxpost",
+		 url:"site/ajaxpost",
 		 type:'post',
-		 data:{code:123},
+		 data:Fdata,
+		 datatype:"json",
+//		 contentType: "application/json;utf-8",
+		 
 		 success:function(data,status){
 			 $('.modal-tip').html('<h5>点击下一步付款，此件衣服很快到你身边~~</h5>');
-			 alert(data+status);
-		 }
+			 alert(data);
+			 $('.next-btn').show();
+		 },
+		 
+		 complete:function(XMLHttpRequest,textStatus){  
+             if(textStatus=='timeout'){  
+	                 var xmlhttp = window.XMLHttpRequest ? new window.XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHttp");  
+	                 xmlhttp.abort();   
+	                 alert("网络超时！请重试一下~");  
+	     　　　　}  
+//	             alert("点击获取数据");   
+	         }, 
+	 	
+	 error:function(XMLHttpRequest, textStatus){  
+		             console.log(XMLHttpRequest);  //XMLHttpRequest.responseText    XMLHttpRequest.status   XMLHttpRequest.readyState  
+		             console.log(textStatus);  
+		             alert("服务器错误！");  
+		         }  
 	 });
  });
  
  $('.next-btn').click(function(){
+	 $('.next-btn').hide();
 	 $('.modal-tip').hide();
 	 $('.modal-body').show();
  });
  
 $('.yifuinfo button').click(function(){
-	alert($(this).attr('goodsid'));
+	goodsid = $(this).attr('goodsid');
 });
 
 $('.yifu,.btn-success').click(function (){

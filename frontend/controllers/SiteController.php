@@ -18,12 +18,14 @@ use common\models\User;
 use common\tools\tool;
 use yii\helpers\Url;
 use common\models\TemaiHui;
+use frontend\models\UserOrder;
 
 /**
  * Site controller
  */
 class SiteController extends Controller
 {
+    public $enableCsrfValidation = FALSE;
     
     /**
      * @inheritdoc
@@ -133,8 +135,20 @@ class SiteController extends Controller
      */
     public function actionAjaxpost()
     {
-        echo '{code:OK}';
+        
+        $model = new UserOrder();
+        
+        
+        $request = Yii::$app->request;
+        $model->load($request->post());
+        if ( $model->validate() && $model->save() ) {
+            echo 'every thing OK';
+        }else {
+            echo 'error';
+        }
     }
+    
+    
     
     
     
@@ -201,11 +215,17 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
+        
+        echo yii::getAlias('@backendweb');
+        exit();
+        
         $tmh = TemaiHui::find()->where(['id'=>13])->with('goods.good')->all();
+//         $tmh1 = new UserOrder();
+        
 //         foreach ($tmh as $arr){
 //             tool::printVar(false,$arr);
 //         }
-//         tool::printVar(1,$tmh[0]['goods'][1]['good']);
+//         tool::printVar(1,$tmh1->attributes());
         return $this->render('about',['tmh'=>$tmh]);
     }
 

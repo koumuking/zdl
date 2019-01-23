@@ -6,7 +6,7 @@ body {
 .temaihui{
 	background-color: silver;
 	width: 150px;
-	height: 160px;
+	height: 223px;
 	/* border: 1px solid; */
 	float: left;
 	margin-right: 8px;
@@ -29,6 +29,7 @@ body {
 	margin:0 auto;
 	width: 90%;
 	height: 30px;
+	padding: 2px;
 }
 
 .upyifu{

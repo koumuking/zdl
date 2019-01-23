@@ -28,7 +28,7 @@ if ($user['openid'] != $gly['openid']) {
     echo ('嗨~~ ' . $user['nickname'] . ':<br> 希望你在这能挑到心仪的货哦！');
 } else {
     // $glyUrl = Url::to(['@web/sals']);
-    echo ('嗨~~ ' . $gly['nickname'] . ': 多上传些货哦！大家都等着呢~~<h3><a class="btn btn-info" href="http://zdldc.com/zdl/backend/web/index.php?r=temaihui">点击此处上传商品</a></h3>');
+    echo ('嗨~~ ' . $gly['nickname'] . ': 多上传些货哦！大家都等着呢~~<h3><a class="btn btn-info" href="'.yii::getAlias('@backendweb').'/temaihui">点击此处上传商品</a></h3>');
 }
 ?> </span>
 	</div>
@@ -93,19 +93,19 @@ if ($user['openid'] != $gly['openid']) {
 					<div class="form-group">
 						<label for="InputName">姓名*</label> <input type="text"
 							class="form-control" id="InputName" placeholder="姓名">
-							<div class="nametip s"></div>
+							<div class="nametip tipred"></div>
 					</div>
 					<div class="form-group">
 						<label for="InputTel">电话*</label> <input type="text"
 							class="form-control" id="InputTel" placeholder="电话">
-							<div class="teltip has-error"></div>
+							<div class="teltip tipred"></div>
 					</div>
 					<div class="form-group">
 						<label for="InputAdd">收货地址*</label> <input type="text"
 							class="form-control" id="InputAdd" placeholder="收货地址">
-							<div class="addtip has-error"></div>
+							<div class="addtip tipred"></div>
 					</div>
-                      <?=Html::csrfMetaTags()?>
+                      <?=''//Html::csrfMetaTags()?>
                       注：星号为必填<br>
                       <button type="button" class="ajaxbtn btn btn-primary">确定</button>
 				</form>

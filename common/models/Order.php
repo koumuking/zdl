@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "order".
  *
  * @property integer $id
- * @property integer $userid
+ * @property integer $openid
  * @property integer $goodsid
  */
 class Order extends \yii\db\ActiveRecord
@@ -27,8 +27,9 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id'], 'required'],
-            [['id', 'userid', 'goodsid'], 'integer'],
+            [['openid', 'goodsid'], 'required'],
+            [['openid'], 'string'],
+            [['goodsid'], 'integer'],
         ];
     }
 
@@ -38,8 +39,7 @@ class Order extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'userid' => 'Userid',
+            'openid' => 'Openid',
             'goodsid' => 'Goodsid',
         ];
     }

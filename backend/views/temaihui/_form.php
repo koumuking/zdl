@@ -15,6 +15,10 @@ use common\tools\tool;
 
     <?= $form->field($model, 'intro')->textarea(['maxlength' => true,'rows'=>5]) ?>
     
+    
+    <?= $form->field($model, 'type')->radioList([1=>'轻奢品',2=>'实惠购']) ?>
+    
+    
     <?= $form->
     field($model, 'date',['template'=>'{label}<div class="input-group">{input}<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div>{hint}{error}'])->
     textInput(['value' => date('Y.m.d'),'id'=>'datetimepicker'])
@@ -24,7 +28,7 @@ use common\tools\tool;
     
     <?php ?>
 
-    <?php $form->field($model, 'status')->textInput() ?>
+    
 
     <div class="form-group">
         <?=Html::submitButton('下一步',['class'=>'btn btn-success']); //Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

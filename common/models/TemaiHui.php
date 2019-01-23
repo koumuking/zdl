@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use phpDocumentor\Reflection\Types\Null_;
 
 /**
  * This is the model class for table "sals".
@@ -28,7 +29,7 @@ class TemaiHui extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['date'], 'safe'],
+            [['date','type'], 'safe'],
             [['status'], 'integer'],
             [['intro'], 'string', 'max' => 255],
         ];
@@ -44,8 +45,17 @@ class TemaiHui extends \yii\db\ActiveRecord
             'intro' => '活动介绍',
             'date' => '开始日期',
             'status' => '活动状态',
+            'type'=>'活动类型'
         ];
     }
+    
+    
+    static function getType($num){
+        $arr=['实惠购','轻奢品'];
+        return isset($arr[$num])?$arr[$num]:'';
+    }
+    
+    
     
     
     /*

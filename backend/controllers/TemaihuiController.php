@@ -62,14 +62,9 @@ class TemaihuiController extends Controller
      */
     public function actionIndex()
     {
-//         $searchModel = new searchTemaiHui();
-//         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-//         return $this->render('index', [
-//             'searchModel' => $searchModel,
-//             'dataProvider' => $dataProvider,
-//         ]);
-        return  $this->render('index');
+        $tmhs = TemaiHui::find()->with('goods.good')->all();
+//         tool::printVar(1,$tmh);
+        return  $this->render('index',['tmhs'=>$tmhs]);
     }
 
     /**
@@ -89,13 +84,18 @@ class TemaihuiController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($id=NULL)
     {
-        $model = new TemaiHui();
-
+        if($id){
+                $model = TemaiHui::findOne($id);
+             }else{
+                $model = new TemaiHui();
+            }
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
              return $this->redirect(['create-new-good', 'id' => $model->id]);
         } else {
+            
             return $this->render('create', [
                 'model' => $model,
             ]);
