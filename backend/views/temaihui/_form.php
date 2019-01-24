@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use common\tools\tool;
+use SebastianBergmann\CodeCoverage\Report\Html\Renderer;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\TemaiHui */
@@ -16,7 +17,18 @@ use common\tools\tool;
     <?= $form->field($model, 'intro')->textarea(['maxlength' => true,'rows'=>5]) ?>
     
     
-    <?= $form->field($model, 'type')->radioList([1=>'轻奢品',2=>'实惠购']) ?>
+    <?= $form->field($model, 'type')->radioList([1=>'轻奢品',2=>'实惠购'],
+        [
+//          'tag'=>'p',
+//         'id'=>'dfg',
+        'labelOptions'=>['for'=>'ert'],
+//         'item'=>function ($index, $label, $name, $checked, $value){
+// //         $id = $index == 1 ? '' : '';
+//         $css = $index == 1 ? 'glyphicon glyphicon-heart' : 'glyphicon glyphicon-glass';
+//         return ('<input id="radio'.$index.'" type="radio" name="TemaiHui[type]" '.$checked.' value="'.$value.'"><label for="radio'.$index.'">'.$label.'</label>"<span class="'. $css .'"></span>"');},
+        'separator'=>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+        ]
+    ) ?>
     
     
     <?= $form->

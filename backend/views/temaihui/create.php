@@ -1,12 +1,17 @@
 <?php
 
 use yii\helpers\Html;
+use yii\base\Request;
 
 
 /* @var $this yii\web\View */
 /* @var $model app\models\TemaiHui */
-
-$this->title = '新增活动';
+ if((yii::$app->request->get('id') == null)){
+    $tit='新增活动';
+}else {
+    $tit='修改活动';
+}
+$this->title = $tit;
 $this->params['breadcrumbs'][] = ['label' => '特卖会', 'url' => ['temaihui/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
