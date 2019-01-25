@@ -65,19 +65,21 @@ class Weixin extends \yii\db\ActiveRecord
     {
         $str ='https://api.weixin.qq.com/cgi-bin/menu/create?access_token=%s';
         $menu = '{
-     "button":[
-             {    
+     "button":[{    
                   "type":"view",
-                  "name":"最新特卖",
+                  "name":"轻奢品",
+                  "url":"http://zdldc.com/zdl/frontend/web?qsp=1",
+              },
+            {    
+                  "type":"view",
+                  "name":"实惠购",
                   "url":"http://zdldc.com/zdl/frontend/web",
-              }
-             ]
-            }';
+              },
+             ]}';
         $token = $this->getAccessToken();
         $url = sprintf($str,$token);
         $e = tool::http_curl($url,$menu);
         tool::printVar(0,$e);
-
     }
     
     /*

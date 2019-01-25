@@ -24,6 +24,7 @@ use yii\helpers\Html;
 		<img class='khtouxiang' alt=""
 			src="<?php echo tool::headimagSize($user['headimgurl'], 46) //Yii::getAlias('@web/pic/touxiang.jpg')?>">
 		<span class='hykh'><?php
+
 if ($user['openid'] != $gly['openid']) {
     echo ('嗨~~ ' . $user['nickname'] . ':<br> 希望你在这能挑到心仪的货哦！');
 } else {
@@ -36,37 +37,42 @@ if ($user['openid'] != $gly['openid']) {
 
 		<div class="row">
 			<div class="col-xs-2 youduiqi">
-				<h1>1月</h1>
-				<h4>15日</h4>
+				<h1><?=date('m',time())?>月</h1>
+				<h4><?=date('d',time())?>日</h4>
 			</div>
 			<div class="col-xs-10">
 			
-			<?php if($tmh[0]):?>
+			<?php if($tmh):?>
 
-				    <?php foreach ($tmh[0]['goods'] as $goods):?>
-				    
-    				    <?php foreach ($goods['good'] as $good):?>
-    				    <img class='yifu' data-pic="yifu1.jpg" alt=""
-					src="<?php echo '../../backend/web/'.$good['picurl'] //Yii::getAlias('@web/pic/yifu1.jpg')?>">
-                        <?php endforeach;?>
-					
-				<div class='yifuinfo'>
-					<p><?=$goods['intro'] ?></p>
-					<p><?=$goods['price'] ?></p>
-					<!--这是一段注释。注释不会在浏览器中显示。<p class="btn btn-success" onclick="window.location.href='<?php //echo Url::to(['site/pay', 'id' => 100]);?>'" > -->
-					<!-- 					<p class="btn btn-success" data-pic='fukuanma.jpg'>	 -->
-					<!-- 						我要这件 <span class='glyphicon glyphicon-arrow-up'></span> -->
-					<!-- 					</p> -->
-					<button type="button" class="btn btn-info" data-toggle="modal"
-						data-target=".bs-example-modal-lg" goodsid="<?=$goods['id']?>">
-						我要这件 <span class='glyphicon glyphicon-arrow-up'></span>
-					</button>
-				</div>
+				    <?php if($tmh[0]):?>
+    				    <?php foreach ($tmh[0]['goods'] as $goods):?>
+    				    
+        				    <?php foreach ($goods['good'] as $good):?>
+        				    <img class='yifu' data-pic="yifu1.jpg" alt=""
+    					src="<?php echo '../../backend/web/'.$good['picurl'] //Yii::getAlias('@web/pic/yifu1.jpg')?>">
+                            <?php endforeach;?>
+    					
+    				<div class='yifuinfo'>
+    					<p><?=$goods['intro'] ?></p>
+    					<p><?=$goods['price'] ?></p>
+    					<!--这是一段注释。注释不会在浏览器中显示。<p class="btn btn-success" onclick="window.location.href='<?php //echo Url::to(['site/pay', 'id' => 100]);?>'" > -->
+    					<!-- 					<p class="btn btn-success" data-pic='fukuanma.jpg'>	 -->
+    					<!-- 						我要这件 <span class='glyphicon glyphicon-arrow-up'></span> -->
+    					<!-- 					</p> -->
+    					<button type="button" class="btn btn-info" data-toggle="modal"
+    						data-target=".bs-example-modal-lg" goodsid="<?=$goods['id']?>">
+    						我要这件 <span class='glyphicon glyphicon-arrow-up'></span>
+    					</button>
+    				</div>
+    				
+    				<?php endforeach;?>
+				<?php else: ?>
+				    <h3>暂时没有上传衣服，请稍后，正在努力处理</h3>
+				<?php endif;?>
 				
-				<?php endforeach;?>
-            <?php else :?>
+            <?php else: ?>
             
-            <h1>暂无活动</h1>
+            <h2>暂无活动</h2>
             
             <?php endif;?>
 			</div>
@@ -92,17 +98,17 @@ if ($user['openid'] != $gly['openid']) {
 				<form>
 					<div class="form-group">
 						<label for="InputName">姓名*</label> <input type="text"
-							class="form-control" id="InputName" placeholder="姓名">
+							class="form-control" id="InputName" placeholder="姓名" value="<?= $user['name']?$user['name']:''?>">
 							<div class="nametip tipred"></div>
 					</div>
 					<div class="form-group">
 						<label for="InputTel">电话*</label> <input type="text"
-							class="form-control" id="InputTel" placeholder="电话">
+							class="form-control" id="InputTel" placeholder="电话" value="<?= $user['tel']?$user['tel']:''?>">
 							<div class="teltip tipred"></div>
 					</div>
 					<div class="form-group">
 						<label for="InputAdd">收货地址*</label> <input type="text"
-							class="form-control" id="InputAdd" placeholder="收货地址">
+							class="form-control" id="InputAdd" placeholder="收货地址" value="<?= $user['add']?$user['add']:''?>">
 							<div class="addtip tipred"></div>
 					</div>
                       <?=''//Html::csrfMetaTags()?>

@@ -84,7 +84,8 @@ class SiteController extends Controller
         $this->layout = 'zdl';
         $wx = Weixin::findOne(1);
         $arr = '';
-        if(yii::$app->request->get('code')){
+        $req = yii::$app->request;
+        if($req->get('code')){
             
             $session = yii::$app->session;
             if(!$session->has('temp_user')){
@@ -110,7 +111,12 @@ class SiteController extends Controller
             $gly  = '';
             $gly1 = Wxuser::findOne(['openid' => 'osFMi1diNjHcfIOB3f9VOxaGoADM']);
             $gly2 = Wxuser::findOne(['openid' => 'osFMi1ZOfIQqjJPQj6cGEFe6QKvY']);
-            $tmh = TemaiHui::find()->where(['id'=>14])->with('goods.good')->all();
+            if($req->get('qsp')){
+                $tmh=TemaiHui::getQsp();
+            }else{
+                $tmh=TemaiHui::getShg();
+            }
+//             $tmh = TemaiHui::findOne()->where(['id'=>14])->with('goods.good')->all();
 //             tool::printVar(1,$tmh);
             if(($gly1['openid'] == $user['openid']) || ($gly2['openid'] == $user['openid'])){
                 User::zhuceGly(2);

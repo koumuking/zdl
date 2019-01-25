@@ -36,7 +36,7 @@ use common\models\TemaiHui;
 				    <div class = "intro" ><?=$tmh->intro?></div>
 				    <div class = "intro" ><?=$tmh->date?></div>
 				    <div class = "intro" ><?=$tmh->type==''?'特卖会':TemaiHui::getType($tmh->type)?></div>
-				    <a href="./create?id=<?=$tmh['id']?>">修改活动</a>
+				    <a href="<?= Url::to(['temaihui/create','id'=>$tmh['id']])?>">修改活动</a>
 				</div>
 				<?php endforeach;?>
 				

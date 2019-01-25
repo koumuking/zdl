@@ -16,6 +16,10 @@ use SebastianBergmann\CodeCoverage\Report\Html\Renderer;
 
     <?= $form->field($model, 'intro')->textarea(['maxlength' => true,'rows'=>5]) ?>
     
+    <?= $form->
+    field($model, 'date',['template'=>'{label}<div class="input-group">{input}<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div>{hint}{error}'])->
+    textInput(['value' => date('Y.m.d'),'id'=>'datetimepicker'])
+    ?>
     
     <?= $form->field($model, 'type')->radioList([1=>'轻奢品',2=>'实惠购'],
         [
@@ -31,10 +35,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Renderer;
     ) ?>
     
     
-    <?= $form->
-    field($model, 'date',['template'=>'{label}<div class="input-group">{input}<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div>{hint}{error}'])->
-    textInput(['value' => date('Y.m.d'),'id'=>'datetimepicker'])
-    ?>
+    <?= $form->field($model, 'main')->checkbox() ?>
     
     
     

@@ -43,4 +43,15 @@ class Order extends \yii\db\ActiveRecord
             'goodsid' => 'Goodsid',
         ];
     }
+    
+    public function getOrders(){
+        $rows = (new \yii\db\Query())
+        ->select(['*'])
+        ->from('order')
+        ->innerJoin('wxuser','order.openid = wxuser.openid')
+        ->innerJoin('goods','order.goodsid = goods.id')
+        ->all();
+        
+        return $rows;
+    }
 }

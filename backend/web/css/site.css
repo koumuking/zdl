@@ -31,7 +31,10 @@ body {
 	height: 30px;
 	padding: 2px;
 }
-
+.ordertable td{
+	padding: 2px;
+	border: 1px #F0F0F0 solid;
+}
 .upyifu{
 	width: 150px;
     height: 271px;

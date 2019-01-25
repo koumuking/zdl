@@ -19,6 +19,7 @@ use backend;
 use yii\helpers\Html;
 use yii\helpers\VarDumper;
 use backend\models\backend\models;
+use common\models\Order;
 
 
 /**
@@ -41,7 +42,7 @@ class TemaihuiController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout','index','create','update','delete','view','create-new-good','test'],
+                        'actions' => ['logout','index','create','update','delete','view','create-new-good','test','order'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -200,5 +201,11 @@ class TemaihuiController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+    
+    
+    public function actionOrder(){
+        $orders = Order::getOrders();
+        return $this->render('order',['orders'=>$orders]);
     }
 }

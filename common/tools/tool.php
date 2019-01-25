@@ -152,13 +152,26 @@ class tool
      * 
      */
     static function resizepic($file){
+        $arr = getimagesize($file);
+
         // This is the temporary file created by PHP
        
 //         $uploadedfile = $_FILES['uploadfile']['tmp_name'];
         
         // Create an Image from it so we can do the resize
         
-        $src = imagecreatefromjpeg($file);
+        //索引 2 给出的是图像的类型，返回的是数字，其中1 = GIF，2 = JPG，3 = PNG，4 = SWF，5 = PSD，6 = BMP，7 = TIFF(intel byte order)，8 = TIFF(motorola byte order)，9 = JPC，10 = JP2，11 = JPX，12 = JB2，13 = SWC，14 = IFF，15 = WBMP，16 = XBM
+        
+        if($arr[2] == 2){
+            $src = imagecreatefromjpeg($file);
+        }elseif($arr[2] == 3){
+            $src = imagecreatefrompng($file);
+        }elseif($arr[2] == 1){
+            $src = imagecreatefromgif($file);
+        }else {
+            return false;
+        }
+        
         
         // Capture the original size of the uploaded image
         
@@ -179,6 +192,7 @@ class tool
         if($width>$newwidth){
             $newheight=($height/$width)*$newwidth;
         }else{
+            $newwidth=$width;
             $newheight=$height;
         }
         
