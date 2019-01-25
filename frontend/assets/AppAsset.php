@@ -19,7 +19,8 @@ class AppAsset extends AssetBundle
     public $js = [
         'js/showpic.js',
         'js/bootstrap.min.js',
-        'js/bootstrap-datetimepicker.min.js'
+        'js/bootstrap-datetimepicker.min.js',
+        'http://res.wx.qq.com/open/js/jweixin-1.4.0.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

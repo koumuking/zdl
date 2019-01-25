@@ -5,6 +5,19 @@
 
 //$(".picdetail").hide();
 
+
+
+wx.config({
+    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+    appId: 'wx4c26c4a02cb4c4d2', // 必填，公众号的唯一标识
+    timestamp: , // 必填，生成签名的时间戳
+    nonceStr: '', // 必填，生成签名的随机串
+    signature: '',// 必填，签名
+    jsApiList: [] // 必填，需要使用的JS接口列表
+});
+
+
+
 var img = new Image();
  img.src = "./pic/fukuanma.jpg";
  img.onload = function () {
@@ -51,7 +64,7 @@ var img = new Image();
 	 $('.modal-body').hide();
 	 $('.modal-tip').show();
 	 $('.modal-tip').html('<h5>正在处理，请稍候~~</h5>');
-	 alert(goodsid);
+//	 alert(goodsid);
 	 $.ajax({
 		 url:"site/ajaxpost",
 		 type:'post',
@@ -60,8 +73,9 @@ var img = new Image();
 //		 contentType: "application/json;utf-8",
 		 
 		 success:function(data,status){
-			 $('.modal-tip').html('<h5>点击下一步付款，此件衣服很快到你身边~~</h5>');
-			 alert(data);
+			 $('.modal-title').html('您已经成功预订~！！');
+			 $('.modal-tip').html('点击<下一步>进行付款，此件衣服很快到你身边~~');
+//			 alert(data);
 			 $('.next-btn').show();
 		 },
 		 
@@ -86,6 +100,7 @@ var img = new Image();
 	 $('.next-btn').hide();
 	 $('.modal-tip').hide();
 	 $('.modal-body').show();
+	 $('.modal-title').html('先确认你的信息');
  });
  
 $('.yifuinfo button').click(function(){

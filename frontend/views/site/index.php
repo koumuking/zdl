@@ -63,6 +63,9 @@ if ($user['openid'] != $gly['openid']) {
     						data-target=".bs-example-modal-lg" goodsid="<?=$goods['id']?>">
     						我要这件 <span class='glyphicon glyphicon-arrow-up'></span>
     					</button>
+    					<?php if(!yii::$app->user->getIsGuest()):?>
+    					   <a href="<?= Url::to(['/site/editgood','id'=>$goods['id']])?>">删除这件</a>
+    					<?php endif;?>
     				</div>
     				
     				<?php endforeach;?>

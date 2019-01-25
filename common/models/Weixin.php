@@ -5,6 +5,7 @@ namespace common\models;
 use Yii;
 use common\tools\tool;
 use common\models\Wxuser;
+use yii\base\Security;
 
 /**
  * This is the model class for table "weixin".
@@ -34,7 +35,7 @@ class Weixin extends \yii\db\ActiveRecord
     {
         return [
             [['appid', 'appsecret', 'accessToken', 'token', 'EncodingAESKey'], 'required'],
-            [['accessToken_expires'], 'safe'],
+            [['accessToken_expires','ticket'], 'safe'],
             [['appid', 'appsecret', 'accessToken'], 'string', 'max' => 255],
             [['token'], 'string', 'max' => 32],
             [['EncodingAESKey'], 'string', 'max' => 50],
@@ -65,17 +66,19 @@ class Weixin extends \yii\db\ActiveRecord
     {
         $str ='https://api.weixin.qq.com/cgi-bin/menu/create?access_token=%s';
         $menu = '{
-     "button":[{    
-                  "type":"view",
-                  "name":"轻奢品",
-                  "url":"http://zdldc.com/zdl/frontend/web?qsp=1",
-              },
-            {    
-                  "type":"view",
-                  "name":"实惠购",
-                  "url":"http://zdldc.com/zdl/frontend/web",
-              },
-             ]}';
+                    "button": [
+                        {
+                            "type": "view", 
+                            "name": "轻奢品", 
+                            "url": "http://zdldc.com/zdl/frontend/web?qsp=1"
+                        }, 
+                        {
+                            "type": "view", 
+                            "name": "实惠购", 
+                            "url": "http://zdldc.com/zdl/frontend/web"
+                        }
+                    ]
+                }';
         $token = $this->getAccessToken();
         $url = sprintf($str,$token);
         $e = tool::http_curl($url,$menu);
@@ -154,6 +157,8 @@ class Weixin extends \yii\db\ActiveRecord
         
     }
     
+    
+    
     public function getAccessToken(){
         
         $wx = $this->findOne(['id'=>1]);
@@ -175,6 +180,42 @@ class Weixin extends \yii\db\ActiveRecord
             
         }
 
+    }
+    
+    
+    public function getJsapiticket(){
+        if(time()- $this['accessToken_expires'] > 7200){
+            $url = 'https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token='.self::getAccessToken().'&type=jsapi';
+            $res = tool::http_curl($url);
+            $arr = json_decode($res, true);
+            if($arr['errmsg'] == 'ok'){
+                $this->ticket = $arr['ticket'];
+                $this->save(false);
+                return $arr['ticket'];
+            }else {
+                return $arr['errmsg'];
+            }
+        }else{
+            return $this->ticket;
+        }
+        
+    }
+    
+    
+    
+    public function wxSha1(){
+        
+        $nonce = Yii::$app->getSecurity()->generateRandomString();
+        $timestamp = time();
+        $token = $this->getAccessToken();
+        $ticket = $this->getJsapiticket();
+        $url = yii::$app->request->absoluteUrl;
+        $string = "jsapi_ticket=".$ticket."&noncestr=".$nonce."&timestamp=".$timestamp."&url=".$url;
+        
+//         $array = array($encrypt_msg, $token, $timestamp, $nonce);
+//         sort($array, SORT_STRING);
+//         $str = implode($array);
+        return sha1($string);
     }
     
     

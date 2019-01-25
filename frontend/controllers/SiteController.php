@@ -19,6 +19,7 @@ use common\tools\tool;
 use yii\helpers\Url;
 use common\models\TemaiHui;
 use frontend\models\UserOrder;
+use common\models\Goods;
 
 /**
  * Site controller
@@ -43,7 +44,7 @@ class SiteController extends Controller
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout','editgood'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -113,9 +114,12 @@ class SiteController extends Controller
             $gly2 = Wxuser::findOne(['openid' => 'osFMi1ZOfIQqjJPQj6cGEFe6QKvY']);
             if($req->get('qsp')){
                 $tmh=TemaiHui::getQsp();
+            }elseif($req->get('tmhid')){
+                $tmh = TemaiHui::find()->where(['id'=>$req->get('tmhid')])->with('goods.good')->all();
             }else{
                 $tmh=TemaiHui::getShg();
             }
+            
 //             $tmh = TemaiHui::findOne()->where(['id'=>14])->with('goods.good')->all();
 //             tool::printVar(1,$tmh);
             if(($gly1['openid'] == $user['openid']) || ($gly2['openid'] == $user['openid'])){
@@ -130,6 +134,19 @@ class SiteController extends Controller
             
         }
     }
+    
+    
+    
+   public function actionEditgood($id=''){
+       if(yii::$app->request->get('queren') == 1){
+           $goods = Goods::findOne(yii::$app->request->get('id'));
+           $goods->delete();
+           $this->goBack();
+       }else{
+          return $this->render('editgood'); 
+       }
+       
+   }
 
     
     
@@ -233,6 +250,24 @@ class SiteController extends Controller
 //         }
 //         tool::printVar(1,$tmh1->attributes());
         return $this->render('about',['tmh'=>$tmh]);
+    }
+    
+    
+    
+    
+    
+    
+    
+    /**
+     * 微信jssdk 验证tocken.
+     *
+     * @return mixed
+     */
+    public function actionJssdk()
+    {
+        
+        $wx = new Weixin();
+        echo $wx->wxSha1();
     }
 
     /**
